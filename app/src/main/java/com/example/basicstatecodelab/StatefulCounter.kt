@@ -1,0 +1,13 @@
+package com.example.basicstatecodelab
+
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.ui.Modifier
+
+@Composable
+fun StatefulCounter(modifier: Modifier = Modifier) {
+    val count: MutableState<Int> = rememberSaveable { mutableStateOf(0) }
+    StatelessCounter(count = count.value, onIncrement = { count.value++ })
+}
